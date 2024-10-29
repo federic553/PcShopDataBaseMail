@@ -112,7 +112,8 @@ Project Link: [https://github.com/federic553/PcShopDataBaseMail](https://github.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[product-screenshot]: images/screen.PNG
+
+[product-screenshot]:/Screenshot.jpeg
 [Java.com]: https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white
 [Java-url]: https://www.java.com/
 [Spring.io]: https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white
