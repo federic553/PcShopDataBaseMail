@@ -1,9 +1,64 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org"
-      layout:decorate="~{layout/layout}">
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/layout}">
 <head>
 <title>Negozio PC</title>
+<script>
+	window.onload = gestoreLoad;
+	
+	async function gestoreLoad(){
+
+    	try {
+	        // Effettua una richiesta fetch e attende la risposta
+	        const response = await fetch('https://www.amiiboapi.com/api/amiibo/?character=mario');
+	        // Converte la risposta in formato JSON e la attende
+	        let  data = await response.json();
+	        // Verifica se la risposta è andata a buon fine
+	        if (!response.ok) {
+	            throw new Error('Network response was not ok');
+	        }
+ 			
+	        console.log(data);
+	        console.log(data.amiibo[0].character)
+	        console.log(data.amiibo[0].image)
+	        console.log(data.amiibo[0].name)
+	        console.log(data.amiibo[0].amiiboSeries)
+	        console.log(data.amiibo[0].release.eu)
+	        
+	        let n=Math.floor(Math.random() * 17 ) +1;
+	        console.log(num);
+	        
+	        //const divAmiibo = document.getElementById("res");
+            
+	        const card = `
+	        
+	        	<div class="row">
+	            <div class="col s12 m7">
+	              <div class="card">
+	                <div class="card-image">
+	                  <img src="${data.amiibo[n].image}">
+	                  <span class="card-title">${data.amiibo[n].name}</span>
+	                </div>
+	                <div class="card-content">
+	                  <p>${data.amiibo[n].amiiboSeries}</p>
+	                  <p>${data.amiibo[n].realease.eu}</p>
+	                </div>
+	                
+	              </div>
+	            </div>
+	          </div>
+	    
+            `;
+            
+            //divAmiibo.innerHTML = card;
+            document.getElementById("res").innerHTML = card;
+
+        } catch (error) {
+            console.error('Errore durante il recupero dei dati JSON:', error);
+        }
+    }
+	        
+</script>
 </head>
 <body>
 	<div layout:fragment="content">
@@ -30,13 +85,70 @@
 					<div class="card-action">
 						<form action="/process" method="POST">
 							<input type="hidden" name="nome" th:value="${pc.nome}"> <input
-								type="number" name="num" value="0"> <input type="submit"
-								value="Inserisci nel carrello">
+								type="number" name="num" value="0">
+							<button class="waves-effect waves-light btn red lighten-2">
+								<i class="material-icons right">add_shopping_cart</i>Inserisci
+								nel carello
+							</button>
+							<!-- 
+							<button class="btn-floating btn-large red lighten-2 pulse"
+								type="submit" name="action">
+								<i class="material-icons">add_shopping_cart</i>
+							</button> -->
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+		<hr>
+		<div id= "res">
+		
+		
+		</div>
+		<hr>
+		<table>
+			<thead>
+				<tr>
+					<th>Tecnologia</th>
+					<th>Descriziojne</th>
+					<th>Immagine</th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+				<tr>
+					<td>ThymeLeaf</td>
+					<td>Motore di template</td>
+					<td><img src="/thyme.jpeg"></td>
+				</tr>
+
+				<tr>
+					<td>MySQL Driver</td>
+					<td>Connessione con database mysql</td>
+					<td><img src="/mysql.jpeg"></td>
+				</tr>
+
+				<tr>
+					<td>Data JDBC</td>
+					<td>Interfaccia tra il codice ed il database</td>
+					<td><img src="/jdbc.jpeg"></td>
+				</tr>
+
+				<tr>
+					<td>Email Sender</td>
+					<td>Possibilità di spedire email</td>
+					<td><img src="/mail.jpeg"></td>
+				</tr>
+
+				<tr>
+					<td>Maven</td>
+					<td>Gestore delle dipendenze</td>
+					<td><img src="/maven.jpeg"></td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
 	</div>
 </body>
 </html>

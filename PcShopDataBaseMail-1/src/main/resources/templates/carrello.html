@@ -32,14 +32,20 @@
 							<form action="/modifica" method="POST">
 								<input type="hidden" name="nome" th:value=${item.nome}>
 								<input type="number" placeholder="nuova quantità" name="num"
-									min=1 max="${item.qnt}" value="0"> <input type="submit"
-									value="Modifica">
+									min=1 max="${item.qnt}" value="0">
+								<button type="submit"  name="action" class="waves-effect waves-light btn red lighten-2">
+								<i class="material-icons right">edit</i>Modifica
+								</button>
+								
+									
 							</form>
 						</td>
 						<td>
 							<form action="/rimuovi" method="POST">
 								<input type="hidden" name="nome" th:value=${item.nome}>
-								<input type="submit" value="Rimuovi">
+								<button type="submit"  name="action" class="waves-effect waves-light btn red lighten-2">
+								<i class="material-icons right">edit</i>Rmuovi
+								</button>
 							</form>
 						</td>
 					</tr>
