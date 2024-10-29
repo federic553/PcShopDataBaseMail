@@ -74,7 +74,7 @@ See the [open issues](https://github.com/federic553/PcShopDataBaseMail/issues) f
 <!-- CONTRIBUTING -->
 ## Contributing
 
-his project is intendend for educational purposes and that is why contribution are not accepted. However, if you have suggestions on how to make the project better,
+This project is intendend for educational purposes and that is why contribution are not accepted. However, if you have suggestions on how to make the project better,
 feel free to reach out and give me suggestions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
